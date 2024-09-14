@@ -15,10 +15,30 @@
         android:text="Sport Name" />
 
     <TextView
-        android:id="@+id/tvSportDescription"
+        android:id="@+id/tvPlayerCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="14sp"
+        android:text="Player Count"
         android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvFieldType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Field Type"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/tvOlympicSport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olympic Sport"
+        android:paddingTop="4dp" />
+
+    <Button
+        android:id="@+id/btnSeeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See Detail"
+        android:paddingTop="8dp" />
 </LinearLayout>

@@ -1,8 +1,10 @@
 package com.example.finalassigment
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalassigment.data.Sport
@@ -11,7 +13,10 @@ class SportsAdapter(private val sportsList: List<Sport>) : RecyclerView.Adapter<
 
     class SportsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvSportName: TextView = itemView.findViewById(R.id.tvSportName)
-        val tvSportDescription: TextView = itemView.findViewById(R.id.tvSportDescription)
+        val tvPlayerCount: TextView = itemView.findViewById(R.id.tvPlayerCount)
+        val tvFieldType: TextView = itemView.findViewById(R.id.tvFieldType)
+        val tvOlympicSport: TextView = itemView.findViewById(R.id.tvOlympicSport)
+        val btnSeeDetail: Button = itemView.findViewById(R.id.btnSeeDetail)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportsViewHolder {
@@ -22,7 +27,18 @@ class SportsAdapter(private val sportsList: List<Sport>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: SportsViewHolder, position: Int) {
         val sport = sportsList[position]
         holder.tvSportName.text = sport.sportName
-        holder.tvSportDescription.text = sport.description
+        holder.tvPlayerCount.text = "Player Count: ${sport.playerCount}"
+        holder.tvFieldType.text = "Field Type: ${sport.fieldType}"
+        holder.tvOlympicSport.text = "Olympic Sport: ${if (sport.olympicSport) "Yes" else "No"}"
+
+        // Handle button click to open SportDetailActivity
+        holder.btnSeeDetail.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, SportDetailActivity::class.java).apply {
+                putExtra("SPORT_DESCRIPTION", sport.description)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
