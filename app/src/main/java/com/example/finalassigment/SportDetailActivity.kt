@@ -1,6 +1,7 @@
 package com.example.finalassigment
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 
@@ -13,5 +14,10 @@ class SportDetailActivity : AppCompatActivity() {
         val description = intent.getStringExtra("SPORT_DESCRIPTION")
         val tvSportDescription: TextView = findViewById(R.id.tvSportDescription)
         tvSportDescription.text = description
+    }
+
+
+    fun goBackToDashboard(view: View) {
+        finish()
     }
 }
