@@ -55,6 +55,7 @@ dependencies {
 
     // Hilt dependancies
     implementation("com.google.dagger:hilt-android:2.52")
+    implementation(libs.androidx.recyclerview)
 
 
     testImplementation(libs.junit)

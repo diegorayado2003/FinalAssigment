@@ -31,11 +31,16 @@ class SportsAdapter(private val sportsList: List<Sport>) : RecyclerView.Adapter<
         holder.tvFieldType.text = "Field Type: ${sport.fieldType}"
         holder.tvOlympicSport.text = "Olympic Sport: ${if (sport.olympicSport) "Yes" else "No"}"
 
-        // Handle button click to open SportDetailActivity
+
         holder.btnSeeDetail.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, SportDetailActivity::class.java).apply {
                 putExtra("SPORT_DESCRIPTION", sport.description)
+                putExtra("sportName",sport.sportName)
+                putExtra("playerCount", sport.playerCount)
+                putExtra("fieldType",sport.fieldType)
+                putExtra("olympicSport",sport.olympicSport)
+
             }
             context.startActivity(intent)
         }
